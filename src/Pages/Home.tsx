@@ -5,6 +5,7 @@ import "./App.css";
 import { SiNotepadplusplus } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { AppBar } from "../Components/AppBar";
+import { NotepadList } from "../Components/NotepadList";
 
 function Home() {
   const [count, setCount] = useState(0);
@@ -12,6 +13,7 @@ function Home() {
   return (
     <div>
       <AppBar />
+      <NotepadList />
     </div>
   );
 }
