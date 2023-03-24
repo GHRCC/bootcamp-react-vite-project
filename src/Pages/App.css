@@ -1,0 +1,12 @@
+* {
+  font-family: Tisa Sans Pro !important;
+}
+
+body {
+  background-color: transparent;
+  background-image: url("/public/Images/marble.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}

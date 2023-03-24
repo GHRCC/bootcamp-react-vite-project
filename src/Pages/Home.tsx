@@ -4,15 +4,13 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { SiNotepadplusplus } from "react-icons/si";
 import { Link } from "react-router-dom";
-import { AppBar } from "../Components/AppBar";
+import { Layout } from "../Components/Layout/index";
 import { NotepadList } from "../Components/NotepadList";
+import { LinkButton } from "../Components/LinkButton";
 
 function Home() {
-  const [count, setCount] = useState(0);
-
   return (
     <div>
-      <AppBar />
       <NotepadList />
     </div>
   );

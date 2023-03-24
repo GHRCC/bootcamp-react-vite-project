@@ -3,17 +3,17 @@ import { SiNotepadplusplus } from "react-icons/si";
 
 export function AppBar() {
   return (
-    <div className="bg-rosa-neon h-16 flex items-center px-8 shadow-xl">
-      <div className="flex items-center gap-2">
+    <div className="bg-white h-20 flex items-center px-8">
+      <div className="flex items-center gap-2 bg-white">
         <Link to="/" className="group">
           <SiNotepadplusplus
             size="70px"
-            className="text-white group-hover:scale-110"
+            className="text-black group-hover:scale-110 bg-white"
           />
         </Link>
         <Link
           to="/"
-          className="text-white font-semibold font-serif text-xl hover:text-2xl border-b-2 border-white "
+          className="text-black font-semibold font-serif text-xl hover:text-2xl border-b-2 border-black bg-white"
         >
           Notepads
         </Link>
