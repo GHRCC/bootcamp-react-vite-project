@@ -14,7 +14,7 @@ export function Layout(props: layout) {
           <AppBar />
         </div>
         <div className="m-8">
-          <LinkButton to="/create">Create Notepad</LinkButton>
+          <LinkButton to="/create-notepad">Create Notepad</LinkButton>
         </div>
       </div>
       {props.children}

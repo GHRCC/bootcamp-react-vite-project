@@ -21,13 +21,17 @@ export function NotepadList() {
   return (
     <ul className="bg-white flex flex-col gap-8 p-8 w-72 absolute top-26 right-0 bottom-auto shadow-lg border-double border-black border-4 overflow-auto h-screen">
       {notepads.map((currentItem: Notepad) => (
-        <li key={currentItem.id}>
-          <Link to={`/notepads/${currentItem.id}`}>
-            <h1 className="text-lg text-black font-extrabold hover:text-xl border-solid border-t-2 border-black flex gap-2 items-center bg-white">
-              {currentItem.title}
+        <li key={currentItem.id} className="w-full">
+          <div className="flex w-full border-solid border-t-2 border-black justify-between">
+            <Link to={`/notepads/${currentItem.id}`}>
+              <h1 className="text-lg text-black font-extrabold hover:text-xl  flex gap-2 items-center bg-white">
+                {currentItem.title}
+              </h1>
+            </Link>
+            <Link to={`/edit-notepad/${currentItem.id}`}>
               <TfiPencil className="bg-white" />
-            </h1>
-          </Link>
+            </Link>
+          </div>
           <p className="font-serif text-black bg-white">
             {currentItem.subtitle}
           </p>
