@@ -16,6 +16,7 @@ export function Layout(props: layout) {
         <div className="m-8">
           <LinkButton to="/create-notepad">Create Notepad</LinkButton>
         </div>
+        <div></div>
       </div>
       {props.children}
     </>

@@ -35,20 +35,20 @@ export function EditNotepad() {
   }, []);
 
   return (
-    <div className="flex">
-      <h1>Edit Notepad</h1>
-      <div className="flex flex-col items-center bg-white text-black my-5 md:mx-auto md:max-w-screen-md h-36 border-double border-black border-4 w-full gap-3">
-        <Breadcrumbs
-          links={[
-            {
-              title: "Home",
-              link: "/",
-            },
-            { title: notepad.title, link: `/notepads/${params.id}` },
-          ]}
-        />
+    <div className="flex flex-col bg-white justify-center items-center my-20 p-16 w-full gap-5">
+      <Breadcrumbs
+        links={[
+          {
+            title: "Home",
+            link: "/",
+          },
+          { title: notepad.title, link: `/notepads/${params.id}` },
+        ]}
+      />
+      <h1 className="text-2xl">Edit Notepad</h1>
+      <div className="flex flex-col items-center bg-white text-black h-56 border-double  w-full gap-3">
         <form
-          className="flex flex-col"
+          className="flex flex-col gap-3"
           noValidate
           onSubmit={async (event) => {
             event.preventDefault();
@@ -62,40 +62,49 @@ export function EditNotepad() {
           }}
         >
           <TextField
+            className="border-2 border-double border-black w-96"
             value={form.title}
             placeholder={"Write your title here"}
             onChange={(title) => setForm({ ...form, title })} //Here I am harnessing title -> value and executing a onchange function that will update the value every time that value is altered
           ></TextField>
           <TextField
+            className="border-2 border-double border-black w-96"
             value={form.subtitle}
             placeholder={"Write your subtitle here"}
             onChange={(subtitle) => setForm({ ...form, subtitle })} //Here I am harnessing title -> value and executing a onchange function that will update the value every time that value is altered
           ></TextField>
           <TextArea
-            className="resize-none w-full"
+            className="resize-none border-2 border-double border-black"
             value={form.content}
             placeholder="What's on your mind!?"
             onChange={(content) => setForm({ ...form, content })}
           />
-          <button type="submit">Edit</button>
-          <button
-            type="button"
-            onClick={async () => {
-              const res = await api.delete(`/notepads/${params.id}`);
-              const deleteNotepadResponse = res.data;
+          <div className="flex justify-evenly items-center">
+            <button
+              className="border-double border-2 border-black w-16 hover:bg-emerald-400"
+              type="submit"
+            >
+              Edit
+            </button>
+            <button
+              className="border-double border-2 border-black w-16 hover:bg-red-600"
+              type="button"
+              onClick={async () => {
+                const res = await api.delete(`/notepads/${params.id}`);
+                const deleteNotepadResponse = res.data;
 
-              if (deleteNotepadResponse.success) {
-                toast("Notepad deleted successfully!");
-                navigate("/");
-              } else {
-                toast("Error: unable to delete notepad");
-              }
-            }}
-          >
-            Delete
-          </button>
+                if (deleteNotepadResponse.success) {
+                  toast("Notepad deleted successfully!");
+                  navigate("/");
+                } else {
+                  toast("Error: unable to delete notepad");
+                }
+              }}
+            >
+              Delete
+            </button>
+          </div>
         </form>
-        <NotepadList />
       </div>
     </div>
   );

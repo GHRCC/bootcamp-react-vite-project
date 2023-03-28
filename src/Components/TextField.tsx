@@ -3,12 +3,19 @@ export type TextFieldProps = {
   value: string;
   onChange: (value: string) => void;
   placeholder: string;
+  className: string;
 };
 
-export function TextField({ value, onChange, placeholder }: TextFieldProps) {
+export function TextField({
+  value,
+  onChange,
+  placeholder,
+  className,
+}: TextFieldProps) {
   return (
     <input
       placeholder={placeholder}
+      className={className}
       value={value}
       onChange={(event) => onChange(event.target.value)}
     />
